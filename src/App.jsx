@@ -497,7 +497,9 @@ export default function App() {
   ]);
   const [logicalAddr, setLogicalAddr] = useState({ segment: 0, offset: 100 });
   const [segResult, setSegResult] = useState(null);
-
+  // Demand paging state
+  const [pageTable, setPageTable] = useState({});
+  const [demandResult, setDemandResult] = useState(null);
   const runSimulation = () => {
     const pages = input.split(",").map(s => parseInt(s.trim())).filter(n => !isNaN(n));
     if (!pages.length) return;
