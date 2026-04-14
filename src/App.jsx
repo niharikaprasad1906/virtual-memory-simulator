@@ -83,7 +83,41 @@ function simulateDemandPaging(pages, capacity, pageTable) {
   });
   return { faults, steps, finalPageTable: pageTable };
 }
-
+// -------- MEMORY FRAGMENTATION --------
+function simulateFragmentation(allocations, totalMemory) {
+  // allocations: [{size, allocated: boolean}, ...]
+  let memory = Array(totalMemory).fill(false); // false = free, true = allocated
+  let steps = [];
+  allocations.forEach((alloc, i) => {
+    if (alloc.allocated) {
+      // Allocate
+      let start = memory.indexOf(false);
+      if (start === -1 || start + alloc.size > totalMemory) {
+        steps.push({ step: i, action: "allocate", size: alloc.size, success: false, memory: [...memory] });
+        return;
+      }
+      for (let j = 0; j < alloc.size; j++) {
+        memory[start + j] = true;
+      }
+      steps.push({ step: i, action: "allocate", size: alloc.size, start, success: true, memory: [...memory] });
+    } else {
+      // Deallocate - find first block of this size
+      let start = -1;
+      for (let j = 0; j <= totalMemory - alloc.size; j++) {
+        if (memory.slice(j, j + alloc.size).every(cell => cell)) {
+          start = j;
+          break;
+        }
+      }
+      if (start !== -1) {
+        for (let j = 0; j < alloc.size; j++) {
+          memory[start + j] = false;
+        }
+      }
+      steps.push({ step: i, action: "deallocate", size: alloc.size, start, success: start !== -1, memory: [...memory] });
+    }
+  });
+  
 
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
