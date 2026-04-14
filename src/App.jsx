@@ -500,6 +500,10 @@ export default function App() {
   // Demand paging state
   const [pageTable, setPageTable] = useState({});
   const [demandResult, setDemandResult] = useState(null);
+  // Fragmentation state
+  const [totalMemory, setTotalMemory] = useState(100);
+  const [fragInput, setFragInput] = useState("50,30,-30,20,-50,40");
+  const [fragResult, setFragResult] = useState(null);
   const runSimulation = () => {
     const pages = input.split(",").map(s => parseInt(s.trim())).filter(n => !isNaN(n));
     if (!pages.length) return;
