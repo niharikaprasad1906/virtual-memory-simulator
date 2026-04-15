@@ -480,6 +480,8 @@ const style = `
 
   @media (max-width: 580px) {
     .vms-results-grid, .vms-row { grid-template-columns: 1fr; }
+     .vms-bars { gap: 16px; }
+    .vms-bar-wrap { flex: 1; min-width: 60px; }
   }
 `;
 
