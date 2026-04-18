@@ -43,7 +43,7 @@ npm v7 or higher
 Installation & Run
 ```
 # Clone the repository
-git clone https://github.com/your-username/virtual-memory-simulator.git
+git clone https://github.com/niharikaprasad1906/virtual-memory-simulator)
 
 # Navigate into the project
 cd virtual-memory-simulator
@@ -56,6 +56,7 @@ npm run dev
 ```
 Then open your browser and visit:
 http://localhost:5173
+
 📊 Example Input
 ```
 Reference String: 7,0,1,2,0,3,0,4,2,3,0,3,2
@@ -69,16 +70,19 @@ Optimal       7
 
 
 🧠 Concepts Covered
+
 Paging
 
 Memory is divided into fixed-size blocks called pages (logical) and frames (physical). The OS maps pages to frames and tracks them via a page table.
 
 
 Page Faults
+
 A page fault occurs when a referenced page is not currently in any frame. The OS must load it from secondary storage, potentially evicting an existing page.
 
 
 Demand Paging
+
 Pages are loaded into memory only when accessed, reducing unnecessary memory usage.
 ___________________________________________________________________________________________________________________________________________________________________
 📈 Output
