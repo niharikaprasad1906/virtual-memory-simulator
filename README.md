@@ -43,7 +43,7 @@ npm v7 or higher
 Installation & Run
 ```
 # Clone the repository
-git clone https://github.com/niharikaprasad1906/virtual-memory-simulator)
+git clone https://github.com/niharikaprasad1906/virtual-memory-simulator
 
 # Navigate into the project
 cd virtual-memory-simulator
