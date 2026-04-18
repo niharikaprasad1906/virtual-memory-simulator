@@ -7,7 +7,11 @@ An interactive web-based simulator that visualizes key Operating System memory m
 📸 Preview
 
 Run the app locally and open http://localhost:5173 to see the simulator in action.
-🎯 Features 
+
+
+🎯 Features
+
+
 ```
   Features               Description
 🔹 Paging Simulation      Frame allocation with configurable frame count
@@ -21,6 +25,7 @@ Run the app locally and open http://localhost:5173 to see the simulator in actio
 ```
 
 ⚙️ Technologies Used
+
 ```
 React.js
 
